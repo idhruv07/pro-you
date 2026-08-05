@@ -1,0 +1,30 @@
+# Android / Kotlin / Gradle ignores
+.gradle/
+.kotlin/
+.idea/
+build/
+local.properties
+*.iml
+.DS_Store
+
+# Receiver Python ignores
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.log
+serviceAccountKey.json
+.env
+mirror_pipe
+devices.json
+
+# Web UI / Node ignores
+node_modules/
+dist/
+.firebase/
+
+# Local dev / emulator (never commit these)
+emulator-data/
+*.local
+.env.local
+MacReceiver/server/.env.local

@@ -1,0 +1,93 @@
+name: 24/7 YouTube Channel & To-Do Intelligence Scheduler
+
+on:
+  schedule:
+    # Runs twice daily at 00:00 and 12:00 UTC (5:30 AM and 5:30 PM IST)
+    # Estimated reads: ~8,746 per run x 2 = ~17,492/day -> well within 50,000 free quota
+    - cron: '0 0,12 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI anytime
+
+jobs:
+  run-scheduler:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r MacReceiver/server/requirements.txt
+          pip install pytest
+
+      - name: Write Firebase Service Account Key
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          cd MacReceiver/server
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "$FIREBASE_SERVICE_ACCOUNT" > serviceAccountKey.json
+            echo "Service account key written successfully."
+          else
+            echo "WARNING: FIREBASE_SERVICE_ACCOUNT secret is not set!"
+          fi
+
+      - name: Run Unit & Integration Tests
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY || 'mock_youtube_key' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || 'mock_gemini_key' }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          cd MacReceiver/server
+          python -m pytest tests/ -v --tb=short
+        continue-on-error: false
+
+      - name: Execute Channel Scan & Cache Rebuild
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          cd MacReceiver/server
+          python -c "
+          import logging
+          import sys
+          import database
+          from scheduler_channels import check_channel_updates
+          from scheduler_stats import update_video_stats
+          from scheduler_cache import rebuild_dashboard_cache, build_correlations_cache
+
+          # Enable detailed logging so GitHub Actions captures all output
+          logging.basicConfig(
+              level=logging.INFO,
+              format='%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+          )
+          logger = logging.getLogger('scheduler_runner')
+
+          logger.info('=== Mirror Cloud Scheduler Starting ===')
+
+          logger.info('--- Step 1: Channel Scan ---')
+          if not check_channel_updates():
+              logger.warning('Step 1 (Channel Scan) aborted or hit quota limits. Exiting gracefully.')
+              sys.exit(0)
+
+          logger.info('--- Step 2: Video Stats Update ---')
+          if not update_video_stats():
+              logger.warning('Step 2 (Video Stats Update) aborted or hit quota limits. Exiting gracefully.')
+              sys.exit(0)
+
+          logger.info('--- Step 3: Rebuilding Dashboard Cache ---')
+          db = database.get_db()
+          rebuild_dashboard_cache(db)
+
+          logger.info('--- Step 4: Building Correlations Cache ---')
+          build_correlations_cache(db)
+
+          logger.info('=== Mirror Cloud Scheduler Completed Successfully ===')
+          "

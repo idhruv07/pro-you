@@ -1,0 +1,130 @@
+name: Pro-You 24/7 Multi-Tenant Intelligence Scheduler & Hosting Deploy
+
+on:
+  schedule:
+    # Runs twice daily at 00:00 and 12:00 UTC (5:30 AM and 5:30 PM IST)
+    - cron: '0 0,12 * * *'
+  workflow_dispatch: # Manual trigger from GitHub Actions UI
+  push:
+    branches: [ MultiUsrInit ]
+  pull_request:
+    branches: [ MultiUsrInit ]
+
+jobs:
+  test-and-scan:
+    name: Test & Sync Pro-You Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout MultiUsrInit Branch
+        uses: actions/checkout@v4
+        with:
+          ref: MultiUsrInit
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r MacReceiver/server/requirements.txt
+          pip install pytest
+
+      - name: Write Firebase Service Account Key
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRO_YOU || secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          cd MacReceiver/server
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "$FIREBASE_SERVICE_ACCOUNT" > serviceAccountKey.json
+            echo "Pro-You Firebase Service account key written successfully."
+          else
+            echo "WARNING: FIREBASE_SERVICE_ACCOUNT secret is not set!"
+          fi
+
+      - name: Run PyTest Test Suite
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY || 'mock_youtube_key' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || 'mock_gemini_key' }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRO_YOU || secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          cd MacReceiver/server
+          python -m pytest tests/ -v --tb=short
+        continue-on-error: false
+
+      - name: Execute Channel Scan & Cache Rebuild (Pro-You)
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRO_YOU || secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          cd MacReceiver/server
+          python -c "
+          import logging
+          import sys
+          import database
+          from scheduler_channels import check_channel_updates
+          from scheduler_stats import update_video_stats
+          from scheduler_cache import rebuild_dashboard_cache, build_correlations_cache
+
+          logging.basicConfig(
+              level=logging.INFO,
+              format='%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+          )
+          logger = logging.getLogger('pro_you_scheduler')
+
+          logger.info('=== Pro-You Cloud Scheduler Starting ===')
+
+          logger.info('--- Step 1: Pro-You Channel Scan ---')
+          if not check_channel_updates():
+              logger.warning('Step 1 aborted or hit quota. Exiting gracefully.')
+              sys.exit(0)
+
+          logger.info('--- Step 2: Pro-You Video Stats Update ---')
+          if not update_video_stats():
+              logger.warning('Step 2 aborted or hit quota. Exiting gracefully.')
+              sys.exit(0)
+
+          logger.info('--- Step 3: Rebuilding Pro-You Dashboard Cache ---')
+          db = database.get_db()
+          rebuild_dashboard_cache(db)
+
+          logger.info('--- Step 4: Building Pro-You Correlations Cache ---')
+          build_correlations_cache(db)
+
+          logger.info('=== Pro-You Cloud Scheduler Completed Successfully ===')
+          "
+
+  deploy-pro-you-hosting:
+    name: Deploy to Pro-You Web Hosting (pro-you.web.app)
+    needs: test-and-scan
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/MultiUsrInit' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: MultiUsrInit
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Frontend Dependencies & Build
+        run: |
+          cd MacReceiver/web-ui
+          npm ci || npm install
+          npm run build
+
+      - name: Deploy to Firebase Hosting (pro-you.web.app)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRO_YOU || secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          target: pro-you
+          projectId: fir-c028b
