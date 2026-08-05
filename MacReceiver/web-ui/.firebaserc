@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "pro-you-app"
-  }
+  },
+  "targets": {
+    "pro-you-app": {
+      "hosting": {
+        "pro-you-saas": [
+          "pro-you-saas"
+        ],
+        "pro-you-app": [
+          "pro-you-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
