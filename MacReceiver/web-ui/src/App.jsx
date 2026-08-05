@@ -1215,7 +1215,7 @@ function App() {
       <div className="auth-container">
         <div className="auth-box">
           <Lock size={48} className="auth-icon text-accent" />
-          <h1>DDJ Talks 2 Authentication</h1>
+          <h1>Pro-You SaaS Platform Authentication</h1>
           <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
             Sign in with your authorized Google Account to access the analytics dashboard.
           </p>
@@ -1276,7 +1276,7 @@ function App() {
           <ShieldAlert size={48} color="#ff3366" />
           <h1 style={{ color: '#ff3366', margin: '0.5rem 0' }}>Access Restricted</h1>
           <p style={{ color: 'var(--text-muted)' }}>
-            Account <strong>{user.email}</strong> is not authorized to access DDJ Talks 2.
+            Account <strong>{user.email}</strong> is not authorized to access Pro-You Platform.
           </p>
           <div className="allowed-list" style={{ margin: '1.5rem 0', textAlign: 'left', background: 'rgba(255,255,255,0.03)', padding: '1rem', borderRadius: '8px' }}>
             <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>AUTHORIZED ACCOUNTS:</h4>
