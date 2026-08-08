@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Logs
+*.log
+
+# Web UI build
+web-ui/dist/
+web-ui/node_modules/
+
+# Firebase
+serviceAccountKey.json
+firebase-*.json
+
+# IDEs
+.vscode/
+.idea/

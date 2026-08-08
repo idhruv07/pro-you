@@ -1,0 +1,419 @@
+﻿2026-07-26T03:17:46.2787774Z Current runner version: '2.335.1'
+2026-07-26T03:17:46.2827171Z ##[group]Runner Image Provisioner
+2026-07-26T03:17:46.2828962Z Hosted Compute Agent
+2026-07-26T03:17:46.2830451Z Version: 20260707.563
+2026-07-26T03:17:46.2831874Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-26T03:17:46.2833669Z Build Date: 2026-07-07T19:33:50Z
+2026-07-26T03:17:46.2835282Z Worker ID: ***134013db-39c4-4fea-8d4e-b3ab4cef39d3***
+2026-07-26T03:17:46.2837586Z Azure Region: westus
+2026-07-26T03:17:46.2839136Z ##[endgroup]
+2026-07-26T03:17:46.2842062Z ##[group]Operating System
+2026-07-26T03:17:46.2844615Z Ubuntu
+2026-07-26T03:17:46.2845989Z 24.04.4
+2026-07-26T03:17:46.2847822Z LTS
+2026-07-26T03:17:46.2849079Z ##[endgroup]
+2026-07-26T03:17:46.2850629Z ##[group]Runner Image
+2026-07-26T03:17:46.2852288Z Image: ubuntu-24.04
+2026-07-26T03:17:46.2853738Z Version: 20260720.247.2
+2026-07-26T03:17:46.2856433Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-26T03:17:46.2860332Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-26T03:17:46.2862549Z ##[endgroup]
+2026-07-26T03:17:46.2865506Z ##[group]GITHUB_TOKEN Permissions
+2026-07-26T03:17:46.2870253Z Contents: read
+2026-07-26T03:17:46.2871551Z Metadata: read
+2026-07-26T03:17:46.2873041Z Packages: read
+2026-07-26T03:17:46.2874408Z ##[endgroup]
+2026-07-26T03:17:46.2878349Z Secret source: Actions
+2026-07-26T03:17:46.2880460Z Prepare workflow directory
+2026-07-26T03:17:46.3392079Z Prepare all required actions
+2026-07-26T03:17:46.3451546Z Getting action download info
+2026-07-26T03:17:46.7169125Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-07-26T03:17:47.1695137Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-07-26T03:17:47.3628114Z Complete job name: run-scheduler
+2026-07-26T03:17:47.4378627Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-26T03:17:47.4388393Z ##[group]Run actions/checkout@v4
+2026-07-26T03:17:47.4389894Z with:
+2026-07-26T03:17:47.4390855Z   repository: idhruv07/mirror
+2026-07-26T03:17:47.4394751Z   token: ***
+2026-07-26T03:17:47.4395325Z   ssh-strict: true
+2026-07-26T03:17:47.4395897Z   ssh-user: git
+2026-07-26T03:17:47.4396489Z   persist-credentials: true
+2026-07-26T03:17:47.4397965Z   clean: true
+2026-07-26T03:17:47.4398958Z   sparse-checkout-cone-mode: true
+2026-07-26T03:17:47.4399918Z   fetch-depth: 1
+2026-07-26T03:17:47.4400513Z   fetch-tags: false
+2026-07-26T03:17:47.4401113Z   show-progress: true
+2026-07-26T03:17:47.4401704Z   lfs: false
+2026-07-26T03:17:47.4402288Z   submodules: false
+2026-07-26T03:17:47.4402874Z   set-safe-directory: true
+2026-07-26T03:17:47.4403535Z   allow-unsafe-pr-checkout: false
+2026-07-26T03:17:47.4404606Z ##[endgroup]
+2026-07-26T03:17:47.5544286Z Syncing repository: idhruv07/mirror
+2026-07-26T03:17:47.5548772Z ##[group]Getting Git version info
+2026-07-26T03:17:47.5551791Z Working directory is '/home/runner/work/mirror/mirror'
+2026-07-26T03:17:47.5615964Z [command]/usr/bin/git version
+2026-07-26T03:17:47.5757371Z git version 2.54.0
+2026-07-26T03:17:47.5793973Z ##[endgroup]
+2026-07-26T03:17:47.5805948Z Temporarily overriding HOME='/home/runner/work/_temp/ce1458f9-0c9c-49d4-9ba8-78f7b783bc5a' before making global git config changes
+2026-07-26T03:17:47.5811269Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-26T03:17:47.5814788Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mirror/mirror
+2026-07-26T03:17:47.5891423Z Deleting the contents of '/home/runner/work/mirror/mirror'
+2026-07-26T03:17:47.5896185Z ##[group]Initializing the repository
+2026-07-26T03:17:47.5899323Z [command]/usr/bin/git init /home/runner/work/mirror/mirror
+2026-07-26T03:17:47.6014136Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-26T03:17:47.6043874Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-26T03:17:47.6045890Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-26T03:17:47.6057861Z hint: call:
+2026-07-26T03:17:47.6087983Z hint:
+2026-07-26T03:17:47.6089671Z hint: 	git config --global init.defaultBranch <name>
+2026-07-26T03:17:47.6115493Z hint:
+2026-07-26T03:17:47.6117491Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-26T03:17:47.6120070Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-26T03:17:47.6121956Z hint:
+2026-07-26T03:17:47.6123541Z hint: 	git branch -m <name>
+2026-07-26T03:17:47.6125180Z hint:
+2026-07-26T03:17:47.6130735Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-26T03:17:47.6133142Z Initialized empty Git repository in /home/runner/work/mirror/mirror/.git/
+2026-07-26T03:17:47.6138211Z [command]/usr/bin/git remote add origin https://github.com/idhruv07/mirror
+2026-07-26T03:17:47.6142848Z ##[endgroup]
+2026-07-26T03:17:47.6145016Z ##[group]Disabling automatic garbage collection
+2026-07-26T03:17:47.6146764Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-26T03:17:47.6170427Z ##[endgroup]
+2026-07-26T03:17:47.6181043Z ##[group]Setting up auth
+2026-07-26T03:17:47.6183704Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-26T03:17:47.6259614Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-26T03:17:47.6918641Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-26T03:17:47.6934392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-26T03:17:47.7139539Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-26T03:17:47.7177815Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-26T03:17:47.7450908Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-26T03:17:47.7494656Z ##[endgroup]
+2026-07-26T03:17:47.7497443Z ##[group]Fetching the repository
+2026-07-26T03:17:47.7507687Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bc71b40f39232d79746b82a1108ea80468bc5b1d:refs/remotes/origin/main
+2026-07-26T03:17:48.3818146Z From https://github.com/idhruv07/mirror
+2026-07-26T03:17:48.3959690Z  * [new ref]         bc71b40f39232d79746b82a1108ea80468bc5b1d -> origin/main
+2026-07-26T03:17:48.3965585Z ##[endgroup]
+2026-07-26T03:17:48.3968301Z ##[group]Determining the checkout info
+2026-07-26T03:17:48.3970755Z ##[endgroup]
+2026-07-26T03:17:48.3972959Z [command]/usr/bin/git sparse-checkout disable
+2026-07-26T03:17:48.3980733Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-26T03:17:48.4008479Z ##[group]Checking out the ref
+2026-07-26T03:17:48.4014726Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-07-26T03:17:48.4195230Z Switched to a new branch 'main'
+2026-07-26T03:17:48.4199217Z branch 'main' set up to track 'origin/main'.
+2026-07-26T03:17:48.4215502Z ##[endgroup]
+2026-07-26T03:17:48.4378513Z [command]/usr/bin/git log -1 --format=%H
+2026-07-26T03:17:48.4386404Z bc71b40f39232d79746b82a1108ea80468bc5b1d
+2026-07-26T03:17:48.4653300Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-26T03:17:48.4656770Z ##[group]Run actions/setup-python@v5
+2026-07-26T03:17:48.4657689Z with:
+2026-07-26T03:17:48.4658249Z   python-version: 3.11
+2026-07-26T03:17:48.4658899Z   check-latest: false
+2026-07-26T03:17:48.4663380Z   token: ***
+2026-07-26T03:17:48.4663972Z   update-environment: true
+2026-07-26T03:17:48.4664658Z   allow-prereleases: false
+2026-07-26T03:17:48.4665312Z   freethreaded: false
+2026-07-26T03:17:48.4665926Z ##[endgroup]
+2026-07-26T03:17:48.6459657Z ##[group]Installed versions
+2026-07-26T03:17:48.6550437Z (node:2021) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-26T03:17:48.6568563Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-26T03:17:48.6570411Z Successfully set up CPython (3.11.15)
+2026-07-26T03:17:48.6572904Z ##[endgroup]
+2026-07-26T03:17:48.6818370Z ##[group]Run python -m pip install --upgrade pip
+2026-07-26T03:17:48.6820106Z [36;1mpython -m pip install --upgrade pip[0m
+2026-07-26T03:17:48.6821936Z [36;1mpip install -r MacReceiver/server/requirements.txt[0m
+2026-07-26T03:17:48.6912541Z shell: /usr/bin/bash -e ***0***
+2026-07-26T03:17:48.6913578Z env:
+2026-07-26T03:17:48.6914317Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:17:48.6915653Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-07-26T03:17:48.6917377Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:17:48.6919142Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:17:48.6920952Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:17:48.6922723Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-07-26T03:17:48.6924217Z ##[endgroup]
+2026-07-26T03:17:49.4896060Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages (26.1.2)
+2026-07-26T03:17:50.2071895Z Collecting fastapi>=0.100.0 (from -r MacReceiver/server/requirements.txt (line 1))
+2026-07-26T03:17:50.3098061Z   Downloading fastapi-0.140.0-py3-none-any.whl.metadata (27 kB)
+2026-07-26T03:17:50.3561217Z Collecting uvicorn>=0.22.0 (from uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:50.3778062Z   Downloading uvicorn-0.51.0-py3-none-any.whl.metadata (6.6 kB)
+2026-07-26T03:17:50.3943718Z Collecting apscheduler>=3.10.0 (from -r MacReceiver/server/requirements.txt (line 3))
+2026-07-26T03:17:50.4328079Z   Downloading apscheduler-3.11.3-py3-none-any.whl.metadata (6.5 kB)
+2026-07-26T03:17:50.4805571Z Collecting google-api-python-client>=2.100.0 (from -r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:50.5016722Z   Downloading google_api_python_client-2.198.0-py3-none-any.whl.metadata (7.0 kB)
+2026-07-26T03:17:50.5535963Z Collecting google-auth>=2.20.0 (from -r MacReceiver/server/requirements.txt (line 5))
+2026-07-26T03:17:50.5729797Z   Downloading google_auth-2.56.2-py3-none-any.whl.metadata (6.0 kB)
+2026-07-26T03:17:50.5967809Z Collecting firebase-admin>=6.2.0 (from -r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:50.6199965Z   Downloading firebase_admin-7.5.0-py3-none-any.whl.metadata (1.8 kB)
+2026-07-26T03:17:50.6347099Z Collecting python-dotenv>=1.0.0 (from -r MacReceiver/server/requirements.txt (line 7))
+2026-07-26T03:17:50.6556896Z   Downloading python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+2026-07-26T03:17:50.6721427Z Collecting isodate>=0.6.1 (from -r MacReceiver/server/requirements.txt (line 8))
+2026-07-26T03:17:50.6947337Z   Downloading isodate-0.7.2-py3-none-any.whl.metadata (11 kB)
+2026-07-26T03:17:50.8278252Z Collecting pydantic>=2.0.0 (from -r MacReceiver/server/requirements.txt (line 9))
+2026-07-26T03:17:50.8476638Z   Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+2026-07-26T03:17:50.8963423Z Collecting starlette>=0.46.0 (from fastapi>=0.100.0->-r MacReceiver/server/requirements.txt (line 1))
+2026-07-26T03:17:50.9187353Z   Downloading starlette-1.3.1-py3-none-any.whl.metadata (6.4 kB)
+2026-07-26T03:17:50.9349848Z Collecting typing-extensions>=4.8.0 (from fastapi>=0.100.0->-r MacReceiver/server/requirements.txt (line 1))
+2026-07-26T03:17:50.9568261Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-07-26T03:17:50.9666346Z Collecting typing-inspection>=0.4.2 (from fastapi>=0.100.0->-r MacReceiver/server/requirements.txt (line 1))
+2026-07-26T03:17:50.9882247Z   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+2026-07-26T03:17:50.9972531Z Collecting annotated-doc>=0.0.2 (from fastapi>=0.100.0->-r MacReceiver/server/requirements.txt (line 1))
+2026-07-26T03:17:51.0189998Z   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+2026-07-26T03:17:51.0437685Z Collecting click>=7.0 (from uvicorn>=0.22.0->uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:51.0651363Z   Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+2026-07-26T03:17:51.0760958Z Collecting h11>=0.8 (from uvicorn>=0.22.0->uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:51.0977916Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-07-26T03:17:51.1127640Z Collecting tzlocal>=3.0 (from apscheduler>=3.10.0->-r MacReceiver/server/requirements.txt (line 3))
+2026-07-26T03:17:51.1341723Z   Downloading tzlocal-5.4.4-py3-none-any.whl.metadata (7.7 kB)
+2026-07-26T03:17:51.1474032Z Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.1702723Z   Downloading httplib2-0.32.0-py3-none-any.whl.metadata (2.2 kB)
+2026-07-26T03:17:51.1942795Z Collecting google-auth-httplib2<1.0.0,>=0.2.0 (from google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.2159630Z   Downloading google_auth_httplib2-0.4.0-py3-none-any.whl.metadata (3.0 kB)
+2026-07-26T03:17:51.2664819Z Collecting google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5 (from google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.2880578Z   Downloading google_api_core-2.33.0-py3-none-any.whl.metadata (3.2 kB)
+2026-07-26T03:17:51.3050185Z Collecting uritemplate<5,>=3.0.1 (from google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.3258584Z   Downloading uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+2026-07-26T03:17:51.3420895Z Collecting pyasn1-modules>=0.2.1 (from google-auth>=2.20.0->-r MacReceiver/server/requirements.txt (line 5))
+2026-07-26T03:17:51.3663821Z   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+2026-07-26T03:17:51.5449434Z Collecting cryptography>=38.0.3 (from google-auth>=2.20.0->-r MacReceiver/server/requirements.txt (line 5))
+2026-07-26T03:17:51.5667207Z   Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+2026-07-26T03:17:51.5858702Z Collecting googleapis-common-protos<2.0.0,>=1.63.2 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.6069634Z   Downloading googleapis_common_protos-1.75.0-py3-none-any.whl.metadata (8.6 kB)
+2026-07-26T03:17:51.7326265Z Collecting protobuf<8.0.0,>=5.29.6 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.7543730Z   Downloading protobuf-7.35.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+2026-07-26T03:17:51.7700508Z Collecting proto-plus<2.0.0,>=1.24.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.7914171Z   Downloading proto_plus-1.28.2-py3-none-any.whl.metadata (2.2 kB)
+2026-07-26T03:17:51.8162488Z Collecting requests<3.0.0,>=2.33.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.8375377Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-07-26T03:17:51.8638695Z Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.8853084Z   Downloading pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+2026-07-26T03:17:51.9750003Z Collecting charset_normalizer<4,>=2 (from requests<3.0.0,>=2.33.0->google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:51.9969633Z   Downloading charset_normalizer-3.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)
+2026-07-26T03:17:52.0130254Z Collecting idna<4,>=2.5 (from requests<3.0.0,>=2.33.0->google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:52.0353359Z   Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+2026-07-26T03:17:52.0549165Z Collecting urllib3<3,>=1.26 (from requests<3.0.0,>=2.33.0->google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:52.0764457Z   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+2026-07-26T03:17:52.0938594Z Collecting certifi>=2023.5.7 (from requests<3.0.0,>=2.33.0->google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.100.0->-r MacReceiver/server/requirements.txt (line 4))
+2026-07-26T03:17:52.1139859Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+2026-07-26T03:17:52.1288556Z Collecting cachecontrol>=0.14.3 (from firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.1492014Z   Downloading cachecontrol-0.14.4-py3-none-any.whl.metadata (3.1 kB)
+2026-07-26T03:17:52.1734917Z Collecting google-cloud-firestore>=2.21.0 (from firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.1951433Z   Downloading google_cloud_firestore-2.28.0-py3-none-any.whl.metadata (9.5 kB)
+2026-07-26T03:17:52.2151179Z Collecting google-cloud-storage>=3.1.1 (from firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.2366390Z   Downloading google_cloud_storage-3.13.0-py3-none-any.whl.metadata (15 kB)
+2026-07-26T03:17:52.2534720Z Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.2764124Z   Downloading pyjwt-2.13.0-py3-none-any.whl.metadata (3.4 kB)
+2026-07-26T03:17:52.2956374Z Collecting httpx==0.28.1 (from httpx[http2]==0.28.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.3178302Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+2026-07-26T03:17:52.3358789Z Collecting anyio (from httpx==0.28.1->httpx[http2]==0.28.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.3580438Z   Downloading anyio-4.14.2-py3-none-any.whl.metadata (4.6 kB)
+2026-07-26T03:17:52.3735494Z Collecting httpcore==1.* (from httpx==0.28.1->httpx[http2]==0.28.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.3951648Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-07-26T03:17:52.4109475Z Collecting h2<5,>=3 (from httpx[http2]==0.28.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.4328165Z   Downloading h2-4.4.0-py3-none-any.whl.metadata (3.8 kB)
+2026-07-26T03:17:52.9241270Z Collecting grpcio<2.0.0,>=1.41.0 (from google-api-core[grpc]<3.0.0dev,>=2.25.1; platform_python_implementation != "PyPy"->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.9461474Z   Downloading grpcio-1.83.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.7 kB)
+2026-07-26T03:17:52.9788995Z Collecting grpcio-status<2.0.0,>=1.41.0 (from google-api-core[grpc]<3.0.0dev,>=2.25.1; platform_python_implementation != "PyPy"->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:52.9997460Z   Downloading grpcio_status-1.83.0-py3-none-any.whl.metadata (1.2 kB)
+2026-07-26T03:17:53.0238533Z Collecting hyperframe<7,>=6.1 (from h2<5,>=3->httpx[http2]==0.28.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:53.0447796Z   Downloading hyperframe-6.1.0-py3-none-any.whl.metadata (4.3 kB)
+2026-07-26T03:17:53.0547579Z Collecting hpack<5,>=4.2 (from h2<5,>=3->httpx[http2]==0.28.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:53.0765595Z   Downloading hpack-4.2.0-py3-none-any.whl.metadata (3.3 kB)
+2026-07-26T03:17:53.0896665Z Collecting annotated-types>=0.6.0 (from pydantic>=2.0.0->-r MacReceiver/server/requirements.txt (line 9))
+2026-07-26T03:17:53.1111710Z   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+2026-07-26T03:17:53.7049466Z Collecting pydantic-core==2.46.4 (from pydantic>=2.0.0->-r MacReceiver/server/requirements.txt (line 9))
+2026-07-26T03:17:53.7277686Z   Downloading pydantic_core-2.46.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+2026-07-26T03:17:53.7968524Z Collecting msgpack<2.0.0,>=0.5.2 (from cachecontrol>=0.14.3->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:53.8187139Z   Downloading msgpack-1.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+2026-07-26T03:17:53.9051343Z Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth>=2.20.0->-r MacReceiver/server/requirements.txt (line 5))
+2026-07-26T03:17:53.9277277Z   Downloading cffi-2.1.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-07-26T03:17:53.9376197Z Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth>=2.20.0->-r MacReceiver/server/requirements.txt (line 5))
+2026-07-26T03:17:53.9593336Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+2026-07-26T03:17:53.9780006Z Collecting google-cloud-core<3.0.0,>=2.0.0 (from google-cloud-firestore>=2.21.0->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:53.9996549Z   Downloading google_cloud_core-2.6.0-py3-none-any.whl.metadata (2.8 kB)
+2026-07-26T03:17:54.0244898Z Collecting google-resumable-media<3.0.0,>=2.7.2 (from google-cloud-storage>=3.1.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:54.0464371Z   Downloading google_resumable_media-2.10.0-py3-none-any.whl.metadata (2.2 kB)
+2026-07-26T03:17:54.1199190Z Collecting google-crc32c<2.0.0,>=1.6.0 (from google-cloud-storage>=3.1.1->firebase-admin>=6.2.0->-r MacReceiver/server/requirements.txt (line 6))
+2026-07-26T03:17:54.1414186Z   Downloading google_crc32c-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (1.7 kB)
+2026-07-26T03:17:54.1620339Z Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth>=2.20.0->-r MacReceiver/server/requirements.txt (line 5))
+2026-07-26T03:17:54.1836060Z   Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+2026-07-26T03:17:54.2324194Z Collecting httptools>=0.8.0 (from uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:54.2541212Z   Downloading httptools-0.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+2026-07-26T03:17:54.2871944Z Collecting pyyaml>=5.1 (from uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:54.3088157Z   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-07-26T03:17:54.3410472Z Collecting uvloop>=0.15.1 (from uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:54.3626741Z   Downloading uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+2026-07-26T03:17:54.4269713Z Collecting watchfiles>=0.20 (from uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:54.4510816Z   Downloading watchfiles-1.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+2026-07-26T03:17:54.5323557Z Collecting websockets>=13.0 (from uvicorn[standard]>=0.22.0->-r MacReceiver/server/requirements.txt (line 2))
+2026-07-26T03:17:54.5543199Z   Downloading websockets-16.1.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+2026-07-26T03:17:54.5863422Z Downloading fastapi-0.140.0-py3-none-any.whl (130 kB)
+2026-07-26T03:17:54.6167171Z Downloading uvicorn-0.51.0-py3-none-any.whl (73 kB)
+2026-07-26T03:17:54.6421761Z Downloading apscheduler-3.11.3-py3-none-any.whl (66 kB)
+2026-07-26T03:17:54.6669724Z Downloading google_api_python_client-2.198.0-py3-none-any.whl (15.6 MB)
+2026-07-26T03:17:54.8846430Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.6/15.6 MB 78.8 MB/s  0:00:00
+2026-07-26T03:17:54.9064328Z Downloading google_auth-2.56.2-py3-none-any.whl (258 kB)
+2026-07-26T03:17:54.9312243Z Downloading google_api_core-2.33.0-py3-none-any.whl (176 kB)
+2026-07-26T03:17:54.9565142Z Downloading google_auth_httplib2-0.4.0-py3-none-any.whl (9.5 kB)
+2026-07-26T03:17:54.9807940Z Downloading googleapis_common_protos-1.75.0-py3-none-any.whl (300 kB)
+2026-07-26T03:17:55.0056142Z Downloading httplib2-0.32.0-py3-none-any.whl (93 kB)
+2026-07-26T03:17:55.0294413Z Downloading proto_plus-1.28.2-py3-none-any.whl (50 kB)
+2026-07-26T03:17:55.0532561Z Downloading protobuf-7.35.1-cp310-abi3-manylinux2014_x86_64.whl (327 kB)
+2026-07-26T03:17:55.0820868Z Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+2026-07-26T03:17:55.1073554Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-07-26T03:17:55.1312294Z Downloading charset_normalizer-3.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (221 kB)
+2026-07-26T03:17:55.1554313Z Downloading idna-3.18-py3-none-any.whl (65 kB)
+2026-07-26T03:17:55.1799265Z Downloading uritemplate-4.2.0-py3-none-any.whl (11 kB)
+2026-07-26T03:17:55.2056427Z Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+2026-07-26T03:17:55.2289224Z Downloading firebase_admin-7.5.0-py3-none-any.whl (141 kB)
+2026-07-26T03:17:55.2537648Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+2026-07-26T03:17:55.2779295Z Downloading grpcio-1.83.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.1 MB)
+2026-07-26T03:17:55.3106777Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 236.6 MB/s  0:00:00
+2026-07-26T03:17:55.3323217Z Downloading grpcio_status-1.83.0-py3-none-any.whl (14 kB)
+2026-07-26T03:17:55.3567967Z Downloading h2-4.4.0-py3-none-any.whl (62 kB)
+2026-07-26T03:17:55.3805372Z Downloading hpack-4.2.0-py3-none-any.whl (34 kB)
+2026-07-26T03:17:55.4108834Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+2026-07-26T03:17:55.4349456Z Downloading hyperframe-6.1.0-py3-none-any.whl (13 kB)
+2026-07-26T03:17:55.4588130Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-07-26T03:17:55.4822516Z Downloading python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+2026-07-26T03:17:55.5059213Z Downloading isodate-0.7.2-py3-none-any.whl (22 kB)
+2026-07-26T03:17:55.5298626Z Downloading pydantic-2.13.4-py3-none-any.whl (472 kB)
+2026-07-26T03:17:55.5551049Z Downloading pydantic_core-2.46.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+2026-07-26T03:17:55.5649073Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 270.9 MB/s  0:00:00
+2026-07-26T03:17:55.5871614Z Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+2026-07-26T03:17:55.6105574Z Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+2026-07-26T03:17:55.6338069Z Downloading cachecontrol-0.14.4-py3-none-any.whl (22 kB)
+2026-07-26T03:17:55.6588116Z Downloading msgpack-1.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (423 kB)
+2026-07-26T03:17:55.6831072Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+2026-07-26T03:17:55.7077929Z Downloading click-8.4.2-py3-none-any.whl (119 kB)
+2026-07-26T03:17:55.7314172Z Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+2026-07-26T03:17:55.7487350Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 320.2 MB/s  0:00:00
+2026-07-26T03:17:55.7707071Z Downloading cffi-2.1.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+2026-07-26T03:17:55.7951469Z Downloading google_cloud_firestore-2.28.0-py3-none-any.whl (431 kB)
+2026-07-26T03:17:55.8217841Z Downloading google_cloud_core-2.6.0-py3-none-any.whl (29 kB)
+2026-07-26T03:17:55.8456283Z Downloading google_cloud_storage-3.13.0-py3-none-any.whl (341 kB)
+2026-07-26T03:17:55.8715447Z Downloading google_crc32c-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (33 kB)
+2026-07-26T03:17:55.8953249Z Downloading google_resumable_media-2.10.0-py3-none-any.whl (81 kB)
+2026-07-26T03:17:55.9199062Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-07-26T03:17:55.9430004Z Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+2026-07-26T03:17:55.9674293Z Downloading pyasn1-0.6.4-py3-none-any.whl (84 kB)
+2026-07-26T03:17:55.9912566Z Downloading pyjwt-2.13.0-py3-none-any.whl (31 kB)
+2026-07-26T03:17:56.0149036Z Downloading starlette-1.3.1-py3-none-any.whl (73 kB)
+2026-07-26T03:17:56.0386115Z Downloading anyio-4.14.2-py3-none-any.whl (125 kB)
+2026-07-26T03:17:56.0654618Z Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+2026-07-26T03:17:56.0942273Z Downloading tzlocal-5.4.4-py3-none-any.whl (18 kB)
+2026-07-26T03:17:56.1188614Z Downloading httptools-0.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (464 kB)
+2026-07-26T03:17:56.1435252Z Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+2026-07-26T03:17:56.1494221Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 155.9 MB/s  0:00:00
+2026-07-26T03:17:56.1713106Z Downloading uvloop-0.22.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.8 MB)
+2026-07-26T03:17:56.1882637Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 245.3 MB/s  0:00:00
+2026-07-26T03:17:56.2108227Z Downloading watchfiles-1.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (456 kB)
+2026-07-26T03:17:56.2358384Z Downloading websockets-16.1.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (186 kB)
+2026-07-26T03:17:56.2595581Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+2026-07-26T03:17:56.4122600Z Installing collected packages: websockets, uvloop, urllib3, uritemplate, tzlocal, typing-extensions, pyyaml, python-dotenv, pyparsing, pyjwt, pycparser, pyasn1, protobuf, msgpack, isodate, idna, hyperframe, httptools, hpack, h11, google-crc32c, click, charset_normalizer, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, requests, pydantic-core, pyasn1-modules, proto-plus, httplib2, httpcore, h2, grpcio, googleapis-common-protos, google-resumable-media, cffi, apscheduler, anyio, watchfiles, starlette, pydantic, httpx, grpcio-status, cryptography, cachecontrol, google-auth, fastapi, google-auth-httplib2, google-api-core, google-cloud-core, google-api-python-client, google-cloud-storage, google-cloud-firestore, firebase-admin
+2026-07-26T03:18:00.7266233Z 
+2026-07-26T03:18:00.7295639Z Successfully installed annotated-doc-0.0.4 annotated-types-0.8.0 anyio-4.14.2 apscheduler-3.11.3 cachecontrol-0.14.4 certifi-2026.7.22 cffi-2.1.0 charset_normalizer-3.4.9 click-8.4.2 cryptography-49.0.0 fastapi-0.140.0 firebase-admin-7.5.0 google-api-core-2.33.0 google-api-python-client-2.198.0 google-auth-2.56.2 google-auth-httplib2-0.4.0 google-cloud-core-2.6.0 google-cloud-firestore-2.28.0 google-cloud-storage-3.13.0 google-crc32c-1.8.0 google-resumable-media-2.10.0 googleapis-common-protos-1.75.0 grpcio-1.83.0 grpcio-status-1.83.0 h11-0.16.0 h2-4.4.0 hpack-4.2.0 httpcore-1.0.9 httplib2-0.32.0 httptools-0.8.0 httpx-0.28.1 hyperframe-6.1.0 idna-3.18 isodate-0.7.2 msgpack-1.2.1 proto-plus-1.28.2 protobuf-7.35.1 pyasn1-0.6.4 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.13.4 pydantic-core-2.46.4 pyjwt-2.13.0 pyparsing-3.3.2 python-dotenv-1.2.2 pyyaml-6.0.3 requests-2.34.2 starlette-1.3.1 typing-extensions-4.16.0 typing-inspection-0.4.2 tzlocal-5.4.4 uritemplate-4.2.0 urllib3-2.7.0 uvicorn-0.51.0 uvloop-0.22.1 watchfiles-1.2.0 websockets-16.1.1
+2026-07-26T03:18:00.8826260Z ##[group]Run cd MacReceiver/server
+2026-07-26T03:18:00.8826695Z [36;1mcd MacReceiver/server[0m
+2026-07-26T03:18:00.8827352Z [36;1mpython -c "[0m
+2026-07-26T03:18:00.8827721Z [36;1mimport os, json, datetime, database, scheduler[0m
+2026-07-26T03:18:00.8828108Z [36;1m[0m
+2026-07-26T03:18:00.8828448Z [36;1m# Write service account key from secret if available[0m
+2026-07-26T03:18:00.8828924Z [36;1msa_json = os.environ.get('FIREBASE_SERVICE_ACCOUNT')[0m
+2026-07-26T03:18:00.8829315Z [36;1mif sa_json:[0m
+2026-07-26T03:18:00.8829662Z [36;1m    with open('serviceAccountKey.json', 'w') as f:[0m
+2026-07-26T03:18:00.8830061Z [36;1m        f.write(sa_json)[0m
+2026-07-26T03:18:00.8830361Z [36;1m[0m
+2026-07-26T03:18:00.8830683Z [36;1mprint('=== Starting 6-Hour Cloud Channel Scan ===')[0m
+2026-07-26T03:18:00.8831119Z [36;1mscheduler.check_channel_updates()[0m
+2026-07-26T03:18:00.8831465Z [36;1m[0m
+2026-07-26T03:18:00.8831837Z [36;1mprint('=== Starting 6-Hour Video Stat & Trend Update ===')[0m
+2026-07-26T03:18:00.8832283Z [36;1mscheduler.update_video_stats()[0m
+2026-07-26T03:18:00.8832706Z [36;1mprint('=== Cloud Scheduler Completed Successfully ===')[0m
+2026-07-26T03:18:00.8833110Z [36;1m"[0m
+2026-07-26T03:18:00.8879696Z shell: /usr/bin/bash -e ***0***
+2026-07-26T03:18:00.8880050Z env:
+2026-07-26T03:18:00.8880383Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:18:00.8880899Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-07-26T03:18:00.8881418Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:18:00.8881876Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:18:00.8882328Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-26T03:18:00.8882770Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-07-26T03:18:00.8883260Z   YOUTUBE_API_KEY: ***
+2026-07-26T03:18:00.8892865Z   FIREBASE_SERVICE_ACCOUNT: ***
+2026-07-26T03:18:00.8893212Z ##[endgroup]
+2026-07-26T03:18:03.4408135Z Traceback (most recent call last):
+2026-07-26T03:18:03.4419030Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 149, in error_remapped_callable
+2026-07-26T03:18:03.4420890Z     return _StreamingResponseIterator(
+2026-07-26T03:18:03.4421842Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4423262Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 71, in __init__
+2026-07-26T03:18:03.4424788Z     self._stored_first_result = next(self._wrapped)
+2026-07-26T03:18:03.4425747Z                                 ^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4427516Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/grpc/_channel.py", line 547, in __next__
+2026-07-26T03:18:03.4428903Z     return self._next()
+2026-07-26T03:18:03.4429719Z            ^^^^^^^^^^^^
+2026-07-26T03:18:03.4431017Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/grpc/_channel.py", line 965, in _next
+2026-07-26T03:18:03.4432352Z     raise self
+2026-07-26T03:18:03.4433378Z grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+2026-07-26T03:18:03.4434923Z 	status = StatusCode.RESOURCE_EXHAUSTED
+2026-07-26T03:18:03.4435737Z 	details = "Quota exceeded."
+2026-07-26T03:18:03.4436502Z 	debug_error_string = "RESOURCE_EXHAUSTED:Quota exceeded."
+2026-07-26T03:18:03.4437604Z >
+2026-07-26T03:18:03.4437983Z 
+2026-07-26T03:18:03.4438499Z The above exception was the direct cause of the following exception:
+2026-07-26T03:18:03.4439176Z 
+2026-07-26T03:18:03.4439546Z Traceback (most recent call last):
+2026-07-26T03:18:03.4440315Z   File "<string>", line 11, in <module>
+2026-07-26T03:18:03.4441471Z   File "/home/runner/work/mirror/mirror/MacReceiver/server/scheduler.py", line 176, in check_channel_updates
+2026-07-26T03:18:03.4442654Z     channel_docs = list(channels_ref.stream())
+2026-07-26T03:18:03.4443716Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4445201Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/cloud/firestore_v1/stream_generator.py", line 58, in __next__
+2026-07-26T03:18:03.4446655Z     return self._generator.__next__()
+2026-07-26T03:18:03.4448068Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4449407Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/cloud/firestore_v1/query.py", line 423, in _make_stream
+2026-07-26T03:18:03.4450835Z     response_iterator, expected_prefix = self._get_stream_iterator(
+2026-07-26T03:18:03.4451731Z                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4453171Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/cloud/firestore_v1/query.py", line 268, in _get_stream_iterator
+2026-07-26T03:18:03.4454706Z     response_iterator = self._client._firestore_api.run_query(
+2026-07-26T03:18:03.4455715Z                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4457570Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/cloud/firestore_v1/services/firestore/client.py", line 1648, in run_query
+2026-07-26T03:18:03.4458852Z === Starting 6-Hour Cloud Channel Scan ===
+2026-07-26T03:18:03.4459592Z     response = rpc(
+2026-07-26T03:18:03.4460193Z                ^^^^
+2026-07-26T03:18:03.4461380Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 128, in __call__
+2026-07-26T03:18:03.4462873Z     return wrapped_func(*args, **kwargs)
+2026-07-26T03:18:03.4463553Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4464880Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 295, in retry_wrapped_func
+2026-07-26T03:18:03.4466258Z     return retry_target(
+2026-07-26T03:18:03.4467091Z            ^^^^^^^^^^^^^
+2026-07-26T03:18:03.4468349Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 157, in retry_target
+2026-07-26T03:18:03.4469672Z     next_sleep = _retry_error_helper(
+2026-07-26T03:18:03.4470363Z                  ^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4471711Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 215, in _retry_error_helper
+2026-07-26T03:18:03.4473062Z     raise final_exc from source_exc
+2026-07-26T03:18:03.4474318Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 148, in retry_target
+2026-07-26T03:18:03.4475603Z     result = target()
+2026-07-26T03:18:03.4476186Z              ^^^^^^^^
+2026-07-26T03:18:03.4477572Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+2026-07-26T03:18:03.4478855Z     return func(*args, **kwargs)
+2026-07-26T03:18:03.4479508Z            ^^^^^^^^^^^^^^^^^^^^^
+2026-07-26T03:18:03.4480827Z   File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 153, in error_remapped_callable
+2026-07-26T03:18:03.4482488Z     raise exceptions.from_grpc_error(exc) from exc
+2026-07-26T03:18:03.4483389Z google.api_core.exceptions.ResourceExhausted: 429 Quota exceeded.
+2026-07-26T03:18:03.5001210Z ##[error]Process completed with exit code 1.
+2026-07-26T03:18:03.5156321Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-26T03:18:03.5157876Z Post job cleanup.
+2026-07-26T03:18:03.6157806Z [command]/usr/bin/git version
+2026-07-26T03:18:03.6207482Z git version 2.54.0
+2026-07-26T03:18:03.6265961Z Temporarily overriding HOME='/home/runner/work/_temp/9fb6e63c-5c08-4d3b-b0fb-3f8af4207bd4' before making global git config changes
+2026-07-26T03:18:03.6268064Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-26T03:18:03.6272786Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mirror/mirror
+2026-07-26T03:18:03.6348334Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-26T03:18:03.6391116Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-26T03:18:03.6770223Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-26T03:18:03.6804217Z http.https://github.com/.extraheader
+2026-07-26T03:18:03.6835334Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-26T03:18:03.6889074Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-26T03:18:03.7267820Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-26T03:18:03.7308285Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-26T03:18:03.7967965Z Cleaning up orphan processes
+2026-07-26T03:18:03.8188206Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
